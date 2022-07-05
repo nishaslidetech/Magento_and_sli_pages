@@ -45,8 +45,8 @@ public class Sli_listing_pagination extends BaseClass {
 
 		try {
 			Thread.sleep(3000);
-			WebElement project_progress = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//a[@data-suggested-term='project progress']//span[@class='highlight'][normalize-space()='progress']")));
+			WebElement project_progress = wait.until(
+					ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-suggested-term='progress report']")));
 			project_progress.click();
 			System.out.println();
 		} catch (NoSuchElementException e) {
@@ -60,7 +60,7 @@ public class Sli_listing_pagination extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//div[@data-direct-url='https://www.slideteam.net/board-to-track-project-progress-ppt-powerpoint-presentation-portfolio.html']")));
+					"//div[@data-direct-url='https://www.slideteam.net/progress-report-text-image-example-of-ppt.html']//img[@id='zoomImg']")));
 			Actions action = new Actions(driver);
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			action.moveToElement(select_ppt).perform();
@@ -76,10 +76,10 @@ public class Sli_listing_pagination extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			// to verify the pop-up
-			String display = driver.findElement(By.xpath("//div[@id = 'imgtip216672']")).getCssValue("display");
+			String display = driver.findElement(By.xpath("//div[@id = 'imgtip122619']")).getCssValue("display");
 			System.out.println("display= " + display);
-			
-			Assert.assertTrue("pop-up is not visible", display.equals("block"));		
+
+			Assert.assertTrue("pop-up is not visible", display.equals("block"));
 		} catch (NoSuchElementException e) {
 
 		}
@@ -94,7 +94,7 @@ public class Sli_listing_pagination extends BaseClass {
 					.elementToBeClickable(By.xpath("//div[3]//div[1]//div[1]//div[3]//ul[1]//li[3]//a[1]")));
 			pageNumber = page_number.getText();
 			page_number.click();
-
+			Thread.sleep(3000);
 			List<WebElement> productSize = driver.findElements(
 					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li"));
 
@@ -105,40 +105,41 @@ public class Sli_listing_pagination extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
+
 		// infinite scrolling
-		/*for (int second = 0;; second++) {
-			
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]")));
-                                select_ppt.click();
-				break;
-			}
-
-		}*/
+		/*
+		 * for (int second = 0;; second++) {
+		 * 
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process";
+		 * if (URL.equals(url)) { Thread.sleep(10000);
+		 * 
+		 * select_ppt = wait.until(ExpectedConditions.elementToBeClickable( By.
+		 * xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]"
+		 * ))); select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 
 		// 2nd ottion provide direct url here
-		/*driver.get("https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process");
-			   Thread.sleep(5000);
-
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]")));
-                                select_ppt.click();*/
+		/*
+		 * driver.get(
+		 * "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process"
+		 * ); Thread.sleep(5000);
+		 * 
+		 * select_ppt = wait.until(ExpectedConditions.elementToBeClickable( By.
+		 * xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]"
+		 * ))); select_ppt.click();
+		 */
 	}
 
 	@Then("^click on any of ppt$")
 	public void click_on_any_of_ppt() throws Throwable {
 		try {
 			Thread.sleep(3000);
-			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//div[@class = 'container listing-container sli_generic_container']//ul//li[7]")));
+			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]")));
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			select_ppt.click();
 		} catch (NoSuchElementException e) {
@@ -152,10 +153,10 @@ public class Sli_listing_pagination extends BaseClass {
 		try {
 			Thread.sleep(2000);
 			verify_ppt_page = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
+					.until(ExpectedConditions
+							.elementToBeClickable(By.xpath("//button[@id='clicking']")))
 					.getText();
-			Assert.assertTrue("user is not on corect page",
-					verify_ppt_page.contains("Download this presentation"));
+			Assert.assertTrue("user is not on corect page", verify_ppt_page.contains("Download This Document"));
 			Thread.sleep(2000);
 		} catch (NoSuchElementException e) {
 
@@ -168,7 +169,7 @@ public class Sli_listing_pagination extends BaseClass {
 			Thread.sleep(3000);
 			WebElement sign_in = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
-			//sign_in.click();
+			// sign_in.click();
 			js.executeScript("arguments[0].click();", sign_in);
 			Thread.sleep(3000);
 		} catch (NoSuchElementException e) {
@@ -222,6 +223,7 @@ public class Sli_listing_pagination extends BaseClass {
 			WebElement change_Management_training_plans = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 					"//a[@data-suggested-term='change management']//span[@class='highlight'][normalize-space()='management']")));
 			change_Management_training_plans.click();
+			Thread.sleep(3000);
 			System.out.println();
 		} catch (NoSuchElementException e) {
 
@@ -250,8 +252,8 @@ public class Sli_listing_pagination extends BaseClass {
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip33146']")).getCssValue("display");
 			System.out.println("display= " + display);
-			
-			Assert.assertTrue("pop-up is not visible", display.equals("block"));		
+
+			Assert.assertTrue("pop-up is not visible", display.equals("block"));
 		} catch (NoSuchElementException e) {
 
 		}
@@ -266,7 +268,7 @@ public class Sli_listing_pagination extends BaseClass {
 					.elementToBeClickable(By.xpath("//div[3]//div[1]//div[1]//div[3]//ul[1]//li[4]//a[1]")));
 			pageNumber = page_number.getText();
 			page_number.click();
-
+			Thread.sleep(3000);
 			List<WebElement> productSize = driver.findElements(
 					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li"));
 
@@ -277,31 +279,32 @@ public class Sli_listing_pagination extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
-		/*for (int second = 0;; second++) {
-			
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
 
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[4]")));
-                                select_ppt.click();
-				break;
-			}
+		/*
+		 * for (int second = 0;; second++) {
+		 * 
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process";
+		 * if (URL.equals(url)) { Thread.sleep(10000);
+		 * 
+		 * select_ppt = wait.until(ExpectedConditions.elementToBeClickable( By.
+		 * xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[4]"
+		 * ))); select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 
-		}*/
-		
 		// 2nd otion just undo this code only for infinite scrolling
-		/*driver.get("https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process");
-			        Thread.sleep(5000);
-
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]")));
-                                select_ppt.click();*/
+		/*
+		 * driver.get(
+		 * "https://www.slideteam.net/search/go?lbc=slideteam&method=and&p=Q&srt=100&ts=custom&uid=759488953&w=Project%20Process"
+		 * ); Thread.sleep(5000);
+		 * 
+		 * select_ppt = wait.until(ExpectedConditions.elementToBeClickable( By.
+		 * xpath("//div[@class = 'container listing-container sli_generic_container']//ul//li[7]"
+		 * ))); select_ppt.click();
+		 */
 	}
 
 	@Then("^click on any of ppti$")
