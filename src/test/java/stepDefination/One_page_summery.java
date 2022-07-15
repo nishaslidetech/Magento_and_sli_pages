@@ -8,9 +8,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import SetUpClass.BaseClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class One_page_summery extends BaseClass {
 	private WebElement page_number;
@@ -25,8 +26,7 @@ public class One_page_summery extends BaseClass {
 
 	@Then("^Click on the one page summery text in left navigation bar$")
 	public void click_on_the_one_page_summery_text_in_left_navigation_bar() throws Throwable {
-		WebElement one_Page_Summary = wait
-				.until(ExpectedConditions.elementToBeClickable(By.linkText("One Pagers")));
+		WebElement one_Page_Summary = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("One Pagers")));
 		one_Page_Summary.click();
 	}
 
@@ -44,7 +44,7 @@ public class One_page_summery extends BaseClass {
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip11']")).getCssValue("display");
 			System.out.println("display= " + display);
-			
+
 			Assert.assertTrue("pop-up is not visible", display.equals("block")); // if block - visible if none - not
 																					// visible
 		} catch (NoSuchElementException e) {

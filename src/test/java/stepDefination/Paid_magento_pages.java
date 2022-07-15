@@ -10,8 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import SetUpClass.BaseClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class Paid_magento_pages extends BaseClass {
 	private WebElement select_ppt;
@@ -68,7 +68,6 @@ public class Paid_magento_pages extends BaseClass {
 			// if block - visible if none - not visible
 			Assert.assertTrue("pop-up is not visible", display.equals("block"));
 
-			
 		} catch (NoSuchElementException e) {
 
 		}
@@ -94,26 +93,21 @@ public class Paid_magento_pages extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
+
 		// code for infinite scrolling
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/professional-powerpoint-templates?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[4]/div[2]/ol[1]/li[1]/div[1]/a[1]/img[1]")));
-                                select_ppt.click();
-				break;
-			}
-
-		}*/
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/professional-powerpoint-templates?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(10000);
+		 * 
+		 * select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
+		 * By.xpath("//div[4]/div[2]/ol[1]/li[1]/div[1]/a[1]/img[1]")));
+		 * select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -160,11 +154,11 @@ public class Paid_magento_pages extends BaseClass {
 	@Then("^Enter username \"([^\"]*)\" and passwordii \"([^\"]*)\"$")
 	public void enter_username_and_passwordii(String username, String password) throws Throwable {
 		try {
-			
+
 			Thread.sleep(3000);
 			WebElement email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 			email.sendKeys(username);
-                        Thread.sleep(2000);
+			Thread.sleep(2000);
 			WebElement password_field = wait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath("//fieldset[@class='fieldset login']//input[@id='pass']")));
 			password_field.sendKeys(password);
@@ -221,7 +215,6 @@ public class Paid_magento_pages extends BaseClass {
 			// if block - visible if none - not visible
 			Assert.assertTrue("pop-up is not visible", display.equals("block"));
 
-			
 		} catch (NoSuchElementException e) {
 
 		}
@@ -246,26 +239,21 @@ public class Paid_magento_pages extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
-		// code for infinite scrolling
-		
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/professional-powerpoint-templates?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-				select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[4]/div[2]/ol[1]/li[13]/div[1]/a[1]/img[1]")));
-			        select_ppt.click();
-				break;
-			}
 
-		}*/
+		// code for infinite scrolling
+
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/professional-powerpoint-templates?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(10000); select_ppt =
+		 * wait.until(ExpectedConditions.elementToBeClickable(
+		 * By.xpath("//div[4]/div[2]/ol[1]/li[13]/div[1]/a[1]/img[1]")));
+		 * select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 	}
 
 	@Then("^Click on any of ppt$")
@@ -273,8 +261,8 @@ public class Paid_magento_pages extends BaseClass {
 
 		try {
 			Thread.sleep(3000);
-			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//div[4]/div[1]/ol[1]/li[6]/div[1]/a[1]/img[1]")));
+			select_ppt = wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("//div[4]/div[1]/ol[1]/li[6]/div[1]/a[1]/img[1]")));
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			select_ppt.click();
 		} catch (NoSuchElementException e) {
@@ -287,10 +275,10 @@ public class Paid_magento_pages extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			verify_ppt_page = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
+					.until(ExpectedConditions
+							.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
 					.getText();
-			Assert.assertTrue("user is not on corect page",
-					verify_ppt_page.contains("Download this presentation"));
+			Assert.assertTrue("user is not on corect page", verify_ppt_page.contains("Download this presentation"));
 			Thread.sleep(2000);
 		} catch (NoSuchElementException e1) {
 

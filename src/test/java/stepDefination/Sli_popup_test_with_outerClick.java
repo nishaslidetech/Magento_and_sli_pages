@@ -11,8 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import SetUpClass.BaseClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class Sli_popup_test_with_outerClick extends BaseClass {
 	private String pop_up_Value;
@@ -23,7 +23,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 	@Given("^Go to Home page$")
 	public void go_to_Home_page() throws Throwable {
 		log.info("It's opening the website URL");
-		
+
 		driver.get(AppURL);
 		BaseClass.ClearBrowserCache();
 	}
@@ -40,7 +40,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 	}
 
 	@Then("^press the outer click$")
-        public void press_the_outer_click() throws Throwable {
+	public void press_the_outer_click() throws Throwable {
 		try {
 			Thread.sleep(2000);
 			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
@@ -78,9 +78,9 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			Thread.sleep(2000);
 
-		        search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.CONTROL + "a");
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 			Thread.sleep(2000);
 
@@ -97,16 +97,15 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			// Clear the search field and enter "Management" on sli listing page
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 			search_field.sendKeys("Software");
 			Thread.sleep(4000);
 
 			// Pressed outside click after pop-up is visible else script got failed
 
-			pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']"))
-					.getCssValue("display");
+			pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
 			Thread.sleep(2000);
 			System.out.println("pop-up value before clicking outer click2 =  " + pop_up_Value);
 			if (pop_up_Value.equals(pop_up_visible)) {
@@ -114,7 +113,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 				Actions action = new Actions(driver);
 				action.moveByOffset(0, 83).click().perform();
 				Thread.sleep(2000);
-				
+
 			} else {
 
 				System.out.println("pop-up is not displayed before clicking outer click2 " + pop_up_Value);
@@ -124,8 +123,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			// verify the pop-up should not visible after clicking outside click
 
 			Thread.sleep(3000);
-			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']"))
-					.getCssValue("display");
+			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
 			System.out.println("pop-up is displayed after clicking outer click2 " + pop_up_Value);
 			assertTrue(pop_up_Value.equals(pop_up_not_visible));
 			Thread.sleep(2000);
@@ -139,9 +137,9 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 	public void click_on_Signin_button() throws Throwable {
 		try {
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
-		        search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.CONTROL + "a");
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 			Thread.sleep(2000);
 			WebElement sign_In = wait
@@ -182,7 +180,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 	}
 
 	@Then("^Press the outerside the pop-up$")
-        public void press_the_outerside_the_pop_up() throws Throwable {
+	public void press_the_outerside_the_pop_up() throws Throwable {
 		try {
 			Thread.sleep(3000);
 			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
@@ -210,11 +208,9 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			assertTrue(pop_up_Value.equals(pop_up_not_visible));
 
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
-		        search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
-
-			
+			search_field.sendKeys(Keys.CONTROL + "a");
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 		} catch (NoSuchElementException e) {
 
@@ -228,8 +224,8 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			Thread.sleep(2000);
 
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 			Thread.sleep(2000);
 
@@ -246,17 +242,16 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			// Clear the search field and enter "Management" on sli listing page
 			Thread.sleep(2000);
 			search_field = BaseClass.elementToBeClickable(By.xpath("//input[@id='search']"));
-		        search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.CONTROL + "a");
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 
 			search_field.sendKeys("HR");
 			Thread.sleep(4000);
 
 			// Pressed ESC key after pop-up is visible else script got failed
 
-			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']"))
-					.getCssValue("display");
+			pop_up_Value = BaseClass.precenceOfElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
 			System.out.println("pop-up value before clicking outer click4 =  " + pop_up_Value);
 			if (pop_up_Value.equals(pop_up_visible)) {
 
@@ -273,8 +268,7 @@ public class Sli_popup_test_with_outerClick extends BaseClass {
 			// verify the pop-up should not visible after pressing Escape key
 
 			Thread.sleep(3000);
-			pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']"))
-					.getCssValue("display");
+			pop_up_Value = driver.findElement(By.xpath("//ul[@id='sli_autocomplete']")).getCssValue("display");
 			System.out.println("pop-up is displayed after clicking outer click4 " + pop_up_Value);
 			assertTrue(pop_up_Value.equals(pop_up_not_visible));
 			Thread.sleep(4000);

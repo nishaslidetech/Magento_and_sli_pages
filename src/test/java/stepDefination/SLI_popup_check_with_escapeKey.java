@@ -2,10 +2,6 @@ package stepDefination;
 
 import static org.junit.Assert.assertTrue;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,8 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import SetUpClass.BaseClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class SLI_popup_check_with_escapeKey extends BaseClass {
 	private String pop_up_Value;
@@ -30,7 +26,7 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 		log.info("It's opening the website URL");
 		driver.get(AppURL);
 		Thread.sleep(5000);
-		driver.navigate().refresh(); // time out exception there that is why adding refresh 
+		driver.navigate().refresh(); // time out exception there that is why adding refresh
 		Thread.sleep(3000);
 		BaseClass.ClearBrowserCache();
 	}
@@ -93,8 +89,8 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 			Thread.sleep(2000);
 
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 			search_field.sendKeys("HR");
 			Thread.sleep(4000);
 
@@ -108,10 +104,10 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 			// Clear the search field and enter "Management" on sli listing page
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(4000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(4000);
 			search_field.sendKeys("Software");
-			//search_field.sendKeys("ftware");
+			// search_field.sendKeys("ftware");
 			Thread.sleep(4000);
 
 			// Pressed ESC key after pop-up is visible else script got failed
@@ -132,7 +128,7 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 
 				System.out.println("pop-up is not displayed before pressing Escape key2 " + pop_up_Value);
 				assertTrue(pop_up_Value.equals(pop_up_visible));
-				
+
 			}
 
 			// verify the pop-up should not visible after pressing Escape key
@@ -152,8 +148,8 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 		try {
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(3000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(3000);
 			Thread.sleep(2000);
 			WebElement sign_In = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign In']")));
@@ -228,8 +224,8 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 
 			search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(4000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(4000);
 			Thread.sleep(3000);
 
 		} catch (NoSuchElementException e) {
@@ -244,8 +240,8 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 			Thread.sleep(2000);
 
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(4000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(4000);
 
 			search_field.sendKeys("Management");
 			Thread.sleep(2000);
@@ -261,8 +257,8 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 			Thread.sleep(2000);
 			search_field = BaseClass.elementToBeClickable(By.xpath("//input[@id='search']"));
 			search_field.sendKeys(Keys.CONTROL + "a");
-		        search_field.sendKeys(Keys.DELETE);
-		        Thread.sleep(4000);
+			search_field.sendKeys(Keys.DELETE);
+			Thread.sleep(4000);
 			search_field.sendKeys("HR");
 			Thread.sleep(4000);
 
@@ -279,7 +275,7 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 
 				System.out.println("pop-up is not displayed before pressing Escape key4 " + pop_up_Value);
 				assertTrue(pop_up_Value.equals(pop_up_visible));
-				
+
 			}
 
 			// verify the pop-up should not visible after pressing Escape key

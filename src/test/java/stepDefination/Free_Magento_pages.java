@@ -10,8 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import SetUpClass.BaseClass;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class Free_Magento_pages extends BaseClass {
 	private WebElement select_ppt;
@@ -63,7 +63,7 @@ public class Free_Magento_pages extends BaseClass {
 
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip15977']")).getCssValue("display");
-			
+
 			System.out.println("display= " + display);
 
 			Assert.assertTrue("pop-up is not visible", display.equals("block")); // if block - visible if none - not
@@ -90,26 +90,21 @@ public class Free_Magento_pages extends BaseClass {
 
 		product_size = productSize.size();
 		Assert.assertTrue("No product is displayed", product_size > 0);
-		
-		//code for infinite scrolling
-		
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/share-and-download-products/?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-				 select_ppt = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//img[@title='Marketing process chart powerpoint icon cc']")));
-			         select_ppt.click();
-			      break;
-			}
 
-		}*/
+		// code for infinite scrolling
+
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/share-and-download-products/?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(10000); select_ppt =
+		 * wait.until(ExpectedConditions .elementToBeClickable(By.
+		 * xpath("//img[@title='Marketing process chart powerpoint icon cc']")));
+		 * select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -131,10 +126,10 @@ public class Free_Magento_pages extends BaseClass {
 		try {
 			Thread.sleep(5000);
 			verify_ppt_page = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
+					.until(ExpectedConditions
+							.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
 					.getText();
-			Assert.assertTrue("user is not on corect page",
-					verify_ppt_page.contains("Download this presentation"));
+			Assert.assertTrue("user is not on corect page", verify_ppt_page.contains("Download this presentation"));
 		} catch (NoSuchElementException e) {
 
 		}
@@ -173,8 +168,8 @@ public class Free_Magento_pages extends BaseClass {
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip13427']")).getCssValue("display");
 			System.out.println("display= " + display);
-			
-			Assert.assertTrue("pop-up is not visible", display.equals("block"));		
+
+			Assert.assertTrue("pop-up is not visible", display.equals("block"));
 
 		} catch (NoSuchElementException e) {
 
@@ -198,26 +193,21 @@ public class Free_Magento_pages extends BaseClass {
 
 		product_size = productSize.size();
 		Assert.assertTrue("No product is displayed", product_size > 0);
-		
-		//code for infinite scrolling, clicking on page 2
-		
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/free-business-powerpoint-templates/?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(9000);
-				select_ppt = wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Belarus map with flag colour']")));
-		                select_ppt.click();
-				break;
-			}
 
-		}*/
+		// code for infinite scrolling, clicking on page 2
+
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/free-business-powerpoint-templates/?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(9000); select_ppt = wait.until(
+		 * ExpectedConditions.elementToBeClickable(By.
+		 * xpath("//img[@title='Belarus map with flag colour']"))); select_ppt.click();
+		 * break; }
+		 * 
+		 * }
+		 */
 	}
 
 	@Then("^click on any of one ppts$")
@@ -302,7 +292,7 @@ public class Free_Magento_pages extends BaseClass {
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip15977']")).getCssValue("display");
 			System.out.println("display= " + display);
-			
+
 			Assert.assertTrue("pop-up is not visible", display.equals("block")); // if block - visible if none - not
 																					// visible
 		} catch (NoSuchElementException e) {
@@ -331,26 +321,21 @@ public class Free_Magento_pages extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
-		// code for infinite scrolling
-		
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/share-and-download-products/?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-				select_ppt = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//img[@title='Branding and marketing powerpoint icon c']")));
-			        select_ppt.click();
-				break;
-			}
 
-		}*/
+		// code for infinite scrolling
+
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/share-and-download-products/?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(10000); select_ppt =
+		 * wait.until(ExpectedConditions .elementToBeClickable(By.
+		 * xpath("//img[@title='Branding and marketing powerpoint icon c']")));
+		 * select_ppt.click(); break; }
+		 * 
+		 * }
+		 */
 	}
 
 	@Then("^Click on any of one ppt under free ppts$")
@@ -371,10 +356,10 @@ public class Free_Magento_pages extends BaseClass {
 		try {
 			Thread.sleep(4000);
 			verify_ppt_page = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
+					.until(ExpectedConditions
+							.elementToBeClickable(By.xpath("//button[normalize-space()='Download this presentation']")))
 					.getText();
-			Assert.assertTrue("user is not on corect page",
-					verify_ppt_page.contains("Download this presentation"));
+			Assert.assertTrue("user is not on corect page", verify_ppt_page.contains("Download this presentation"));
 		} catch (NoSuchElementException e) {
 
 		}
@@ -413,8 +398,8 @@ public class Free_Magento_pages extends BaseClass {
 		// to verify the pop-up
 		String display = driver.findElement(By.xpath("//div[@id = 'imgtip13427']")).getCssValue("display");
 		System.out.println("display= " + display);
-		
-		Assert.assertTrue("pop-up is not visible", display.equals("block"));		
+
+		Assert.assertTrue("pop-up is not visible", display.equals("block"));
 	}
 
 	@Then("^Click on any of page numberii$")
@@ -437,25 +422,21 @@ public class Free_Magento_pages extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
-		//code for infinite scrolling, clicking on page 2
-		
-		/*for (int second = 0;; second++) {
-			if (second >= 30) {
-				break;
-			}
-			js.executeScript("window.scrollBy(0,1200)", "");
-			Thread.sleep(3000);
-			String url = driver.getCurrentUrl();
-			String URL = "https://www.slideteam.net/free-business-powerpoint-templates/?p=2";
-			if (URL.equals(url)) {
-				Thread.sleep(10000);
-			        select_ppt = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Belarus map with flag colour']")));
-			        select_ppt.click();
-				break;
-			}
 
-		}*/
+		// code for infinite scrolling, clicking on page 2
+
+		/*
+		 * for (int second = 0;; second++) { if (second >= 30) { break; }
+		 * js.executeScript("window.scrollBy(0,1200)", ""); Thread.sleep(3000); String
+		 * url = driver.getCurrentUrl(); String URL =
+		 * "https://www.slideteam.net/free-business-powerpoint-templates/?p=2"; if
+		 * (URL.equals(url)) { Thread.sleep(10000); select_ppt =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.
+		 * xpath("//img[@title='Belarus map with flag colour']"))); select_ppt.click();
+		 * break; }
+		 * 
+		 * }
+		 */
 	}
 
 	@Then("^Click on any of one ppts$")
@@ -495,8 +476,8 @@ public class Free_Magento_pages extends BaseClass {
 		} catch (NoSuchElementException e) {
 
 		}
-		
-		//verify the message after signout 
+
+		// verify the message after signout
 		String verifySignOutMessage = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[@class='base']"))).getText();
 
