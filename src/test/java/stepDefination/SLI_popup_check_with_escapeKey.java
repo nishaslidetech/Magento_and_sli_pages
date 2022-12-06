@@ -108,7 +108,7 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 			Thread.sleep(4000);
 			search_field.sendKeys("Software");
 			// search_field.sendKeys("ftware");
-			Thread.sleep(4000);
+			Thread.sleep(5000);
 
 			// Pressed ESC key after pop-up is visible else script got failed
 
@@ -118,7 +118,7 @@ public class SLI_popup_check_with_escapeKey extends BaseClass {
 
 				Actions action = new Actions(driver);
 				action.sendKeys(Keys.ESCAPE).build().perform();
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				/*
 				 * Robot robot = new Robot(); robot.keyPress(KeyEvent.VK_ESCAPE);
 				 * robot.keyRelease(KeyEvent.VK_ESCAPE); Thread.sleep(1000);
