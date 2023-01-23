@@ -116,7 +116,8 @@ public class Paid_magento_pages extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//img[@title='Competitive analysis template 5 comparison table powerpoint guide']")));
+					By.xpath("//img[@title='Artificial intelligence powerpoint presentation slides']")));
+
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			select_ppt.click();
 		} catch (NoSuchElementException e) {
@@ -132,7 +133,7 @@ public class Paid_magento_pages extends BaseClass {
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[@class='product-gallery-title']")))
 					.getText();
 			Assert.assertTrue("user is not on corect page",
-					verify_ppt_page.contains("Competitive analysis template 5 comparison table powerpoint guide"));
+					verify_ppt_page.contains("Artificial intelligence powerpoint presentation slides"));
 			Thread.sleep(2000);
 		} catch (NoSuchElementException e) {
 
@@ -195,8 +196,8 @@ public class Paid_magento_pages extends BaseClass {
 	public void Mouse_hover_on_any_of_one_ppt() throws Throwable {
 
 		try {
-			select_ppt = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//div[4]/div[1]/ol[1]/li[1]/div[1]/a[1]/img[1]")));
+			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//img[@title='Change Management Powerpoint Presentation Slides']")));
 			Actions action = new Actions(driver);
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			action.moveToElement(select_ppt).perform();
@@ -210,7 +211,7 @@ public class Paid_magento_pages extends BaseClass {
 	public void verify_the_displayed_pop_up_is_visibleii() throws Throwable {
 		try {
 			Thread.sleep(3000);
-			String display = driver.findElement(By.xpath("//div[@id = 'imgtip141385']")).getCssValue("display");
+			String display = driver.findElement(By.xpath("//div[@id = 'imgtip97339']")).getCssValue("display");
 			System.out.println("display= " + display);
 			// if block - visible if none - not visible
 			Assert.assertTrue("pop-up is not visible", display.equals("block"));

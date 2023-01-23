@@ -41,6 +41,7 @@ public class Free_Magento_pages extends BaseClass {
 					By.xpath("//li[@class='menu-item has-sub-class']//a[@title = 'Free Stuff']")));
 			Actions action = new Actions(driver);
 			action.moveToElement(free_Stuff).perform();
+			Thread.sleep(3000);
 			free_ppt = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Free Samples']")));
 			action.moveToElement(free_ppt).click().perform();
 		} catch (NoSuchElementException e) {
@@ -63,7 +64,7 @@ public class Free_Magento_pages extends BaseClass {
 
 			// to verify the pop-up
 			String display = driver.findElement(By.xpath("//div[@id = 'imgtip15977']")).getCssValue("display");
-
+			Thread.sleep(3000);
 			System.out.println("display= " + display);
 
 			Assert.assertTrue("pop-up is not visible", display.equals("block")); // if block - visible if none - not
@@ -213,8 +214,8 @@ public class Free_Magento_pages extends BaseClass {
 	@Then("^click on any of one ppts$")
 	public void click_on_any_of_one_ppts() throws Throwable {
 		Thread.sleep(3000);
-		select_ppt = wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Belarus map with flag colour']")));
+		select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//img[@title='Recast mortgage payment ppt powerpoint presentation summary layout cpb']")));
 		js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 		select_ppt.click();
 	}
@@ -225,7 +226,8 @@ public class Free_Magento_pages extends BaseClass {
 		verify_ppt_page = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[@class='product-gallery-title']")))
 				.getText();
-		Assert.assertTrue("user is not on corect page", verify_ppt_page.contains("Belarus map with flag colour"));
+		Assert.assertTrue("user is not on corect page",
+				verify_ppt_page.contains("Recast mortgage payment ppt powerpoint presentation summary layout cpb"));
 	}
 
 	@Then("^Click on signin page$")
@@ -271,6 +273,7 @@ public class Free_Magento_pages extends BaseClass {
 					By.xpath("//li[@class='menu-item has-sub-class']//a[@title = 'Free Stuff']")));
 			Actions action = new Actions(driver);
 			action.moveToElement(free_Stuff).perform();
+			Thread.sleep(3000);
 			free_ppt = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Free Samples']")));
 			action.moveToElement(free_ppt).click().perform();
 			Thread.sleep(4000);

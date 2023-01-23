@@ -59,10 +59,13 @@ public class BaseClass {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 
-			options.addArguments("--incognito"); // DesiredCapabilities object
-			DesiredCapabilities c = DesiredCapabilities.chrome(); // set capability to
-			c.setCapability(ChromeOptions.CAPABILITY, options);
-               		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			/*
+			 * options.addArguments("--incognito"); // DesiredCapabilities object
+			 * DesiredCapabilities c = DesiredCapabilities.chrome(); // set capability to
+			 * c.setCapability(ChromeOptions.CAPABILITY, options);
+			 * options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			 */
+			
 			driver = new ChromeDriver(options);
 
 			driver.manage().window().maximize();
